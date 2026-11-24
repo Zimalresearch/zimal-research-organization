@@ -1,45 +1,148 @@
+
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Zimal Research Organization — research, hope and humanity in District Multan, Pakistan.">
 <title>Zimal Research Organization</title>
 <link rel="stylesheet" href="styles.css">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="config.js"></script><script defer src="app.js"></script>
+<script src="config.js"></script>
+<script defer src="app.js"></script>
 </head>
 <body>
 <header class="topbar">
   <a class="brand" href="#"><span class="brand-mark">Z</span><span>Zimal <small>Research Organization</small></span></a>
-  <nav><a href="#about" data-en="About" data-ur="تعارف">About</a><a href="#work" data-en="Our Work" data-ur="ہمارے کام">Our Work</a><a href="#gallery" data-en="Gallery" data-ur="گیلری">Gallery</a><a href="#reports" data-en="Reports" data-ur="رپورٹس">Reports</a><a href="#contact" data-en="Contact" data-ur="رابطہ">Contact</a></nav>
-  <div class="top-actions"><button id="langToggle" class="lang-btn">اردو</button><a class="btn btn-small" href="#donate" data-en="Support Us" data-ur="تعاون کریں">Support Us</a></div>
+  <nav>
+    <a href="#about" data-en="About" data-ur="تعارف">About</a>
+    <a href="#founder" data-en="Founder" data-ur="بانی">Founder</a>
+    <a href="#work" data-en="Our Work" data-ur="ہمارے کام">Our Work</a>
+    <a href="#gallery" data-en="Gallery" data-ur="گیلری">Gallery</a>
+    <a href="#reports" data-en="Reports" data-ur="رپورٹس">Reports</a>
+    <a href="#contact" data-en="Contact" data-ur="رابطہ">Contact</a>
+  </nav>
+  <div class="top-actions">
+    <button id="langToggle" class="lang-btn">اردو</button>
+    <a class="btn btn-small" href="#donate" data-en="Support Us" data-ur="تعاون کریں">Support Us</a>
+  </div>
 </header>
+
 <main>
 <section class="hero">
-  <div class="hero-shade"></div><div class="hero-content">
+  <div class="hero-shade"></div>
+  <div class="hero-content">
     <p class="eyebrow" data-en="DISTRICT MULTAN · PUNJAB · PAKISTAN" data-ur="ضلع ملتان · پنجاب · پاکستان">DISTRICT MULTAN · PUNJAB · PAKISTAN</p>
     <h1 data-en="Research. Hope.<br>Humanity." data-ur="تحقیق، امید،<br>انسانیت۔">Research. Hope.<br>Humanity.</h1>
     <p class="hero-copy" data-en="Working towards a future where every child can learn, every family can live with dignity, and every person can find an opportunity." data-ur="ایک ایسے مستقبل کے لیے کام جہاں ہر بچہ تعلیم حاصل کرے، ہر خاندان عزت سے زندگی گزارے اور ہر فرد کو آگے بڑھنے کا موقع ملے۔">Working towards a future where every child can learn, every family can live with dignity, and every person can find an opportunity.</p>
-    <div class="hero-buttons"><a href="#work" class="btn" data-en="Explore Our Work" data-ur="ہمارے کام دیکھیں">Explore Our Work</a><a href="#about" class="btn btn-outline" data-en="Who We Are" data-ur="ہم کون ہیں">Who We Are</a></div>
-  </div><div class="hero-note"><span>01 / 03</span><span data-en="A commitment to people" data-ur="انسانیت کے لیے عزم">A commitment to people</span></div>
+    <div class="hero-buttons">
+      <a href="#work" class="btn" data-en="Explore Our Work" data-ur="ہمارے کام دیکھیں">Explore Our Work</a>
+      <a href="#about" class="btn btn-outline" data-en="Who We Are" data-ur="ہم کون ہیں">Who We Are</a>
+    </div>
+  </div>
+  <div class="hero-note"><span>01 / 03</span><span data-en="A commitment to people" data-ur="انسانیت کے لیے عزم">A commitment to people</span></div>
 </section>
+
 <section class="intro section" id="about">
- <div><p class="eyebrow green" data-en="WHO WE ARE" data-ur="ہمارا تعارف">WHO WE ARE</p><h2 data-en="Small steps can create <em>lasting change.</em>" data-ur="چھوٹے قدم بھی <em>بڑی تبدیلی</em> لا سکتے ہیں۔">Small steps can create <em>lasting change.</em></h2></div>
- <div class="intro-text"><p data-en="Zimal Research Organization is a community-focused initiative based in District Multan, Pakistan. We aim to support vulnerable families, improve access to education, and connect people with skills and employment opportunities." data-ur="زمل ریسرچ آرگنائزیشن ضلع ملتان، پاکستان میں قائم ایک فلاحی مقصد رکھنے والا ادارہ ہے۔ ہمارا مقصد ضرورت مند خاندانوں کی مدد، تعلیم تک رسائی بہتر بنانا اور لوگوں کو ہنر و روزگار کے مواقع سے جوڑنا ہے۔">Zimal Research Organization is a community-focused initiative based in District Multan, Pakistan. We aim to support vulnerable families, improve access to education, and connect people with skills and employment opportunities.</p><p class="founder">Muhammad Ashraf Bhatti <span data-en="Founder & Chairman" data-ur="بانی و چیئرمین">Founder & Chairman</span></p></div>
+ <div>
+   <p class="eyebrow green" data-en="WHO WE ARE" data-ur="ہمارا تعارف">WHO WE ARE</p>
+   <h2 data-en="Small steps can create <em>lasting change.</em>" data-ur="چھوٹے قدم بھی <em>بڑی تبدیلی</em> لا سکتے ہیں۔">Small steps can create <em>lasting change.</em></h2>
+ </div>
+ <div class="intro-text">
+   <p data-en="Zimal Research Organization is a community-focused initiative based in District Multan, Pakistan. We aim to support vulnerable families, improve access to education, and connect people with skills and employment opportunities." data-ur="زمل ریسرچ آرگنائزیشن ضلع ملتان، پاکستان میں قائم ایک فلاحی مقصد رکھنے والا ادارہ ہے۔ ہمارا مقصد ضرورت مند خاندانوں کی مدد، تعلیم تک رسائی بہتر بنانا اور لوگوں کو ہنر و روزگار کے مواقع سے جوڑنا ہے۔">Zimal Research Organization is a community-focused initiative based in District Multan, Pakistan. We aim to support vulnerable families, improve access to education, and connect people with skills and employment opportunities.</p>
+   <p class="founder">Muhammad Ashraf Bhatti <span data-en="Founder & Chairman" data-ur="بانی و چیئرمین">Founder & Chairman</span></p>
+ </div>
 </section>
-<section class="work section" id="work"><div class="section-head"><div><p class="eyebrow green" data-en="OUR FOCUS" data-ur="ہماری ترجیحات">OUR FOCUS</p><h2 data-en="Where support matters." data-ur="جہاں مدد کی ضرورت ہے۔">Where support matters.</h2></div><p data-en="Our work will be shared with clear updates, real stories and responsible reporting." data-ur="ہم اپنے کام کی حقیقی کہانیاں، تازہ معلومات اور ذمہ دارانہ رپورٹس شیئر کریں گے۔">Our work will be shared with clear updates, real stories and responsible reporting.</p></div>
+
+<section class="founder-profile section" id="founder">
+  <div class="founder-photo">
+    <img src="founder-chairman.png" alt="Muhammad Ashraf Bhatti, Founder and Chairman">
+  </div>
+  <div class="founder-details">
+    <p class="eyebrow green" data-en="MEET OUR FOUNDER" data-ur="ہمارے بانی سے ملیے">MEET OUR FOUNDER</p>
+    <h2>Muhammad Ashraf Bhatti</h2>
+    <h3 data-en="Founder & Chairman" data-ur="بانی و چیئرمین">Founder & Chairman</h3>
+    <p>Zimal Research Organization</p>
+    <p data-en="District Multan, Punjab, Pakistan" data-ur="ضلع ملتان، پنجاب، پاکستان">District Multan, Punjab, Pakistan</p>
+    <p data-en="Serving Humanity, Building Hope." data-ur="انسانیت کی خدمت، امید کی تعمیر۔">Serving Humanity, Building Hope.</p>
+  </div>
+</section>
+
+<section class="work section" id="work">
+ <div class="section-head">
+  <div>
+   <p class="eyebrow green" data-en="OUR FOCUS" data-ur="ہماری ترجیحات">OUR FOCUS</p>
+   <h2 data-en="Where support matters." data-ur="جہاں مدد کی ضرورت ہے۔">Where support matters.</h2>
+  </div>
+  <p data-en="Our work will be shared with clear updates, real stories and responsible reporting." data-ur="ہم اپنے کام کی حقیقی کہانیاں، تازہ معلومات اور ذمہ دارانہ رپورٹس شیئر کریں گے۔">Our work will be shared with clear updates, real stories and responsible reporting.</p>
+ </div>
  <div class="work-grid">
   <article class="work-card"><div class="card-num">01</div><div class="work-icon">♡</div><h3 data-en="Family Support" data-ur="خاندانوں کی مدد">Family Support</h3><p data-en="Helping families facing hardship with essential support and dignity." data-ur="مشکل حالات سے گزرنے والے خاندانوں کو ضروری مدد اور عزت فراہم کرنا۔">Helping families facing hardship with essential support and dignity.</p></article>
   <article class="work-card featured"><div class="card-num">02</div><div class="work-icon">✳</div><h3 data-en="Education for Children" data-ur="بچوں کی تعلیم">Education for Children</h3><p data-en="Supporting children's learning through school access, books and learning supplies." data-ur="اسکول تک رسائی، کتابوں اور تعلیمی سامان کے ذریعے بچوں کی تعلیم میں مدد۔">Supporting children's learning through school access, books and learning supplies.</p></article>
   <article class="work-card"><div class="card-num">03</div><div class="work-icon">↗</div><h3 data-en="Skills & Employment" data-ur="ہنر اور روزگار">Skills & Employment</h3><p data-en="Connecting people with skills development, career guidance and job opportunities." data-ur="لوگوں کو ہنر سیکھنے، رہنمائی اور روزگار کے مواقع سے جوڑنا۔">Connecting people with skills development, career guidance and job opportunities.</p></article>
  </div>
 </section>
-<section class="gallery section" id="gallery"><div class="section-head"><div><p class="eyebrow green" data-en="REAL WORK · REAL STORIES" data-ur="حقیقی کام · حقیقی کہانیاں">REAL WORK · REAL STORIES</p><h2 data-en="Our activity gallery." data-ur="ہماری سرگرمیوں کی گیلری۔">Our activity gallery.</h2></div><p data-en="Photos and videos from verified activities will appear here." data-ur="تصدیق شدہ سرگرمیوں کی تصاویر اور ویڈیوز یہاں دکھائی جائیں گی۔">Photos and videos from verified activities will appear here.</p></div>
- <div id="galleryGrid" class="gallery-grid"><div class="empty-state"><span>✧</span><h3 data-en="Our stories will appear here" data-ur="ہماری سرگرمیاں یہاں دکھائی دیں گی">Our stories will appear here</h3><p data-en="The organization administrator can publish photos and videos from the private admin panel." data-ur="تنظیم کا منتظم نجی ایڈمن پینل سے تصاویر اور ویڈیوز شائع کر سکتا ہے۔">The organization administrator can publish photos and videos from the private admin panel.</p></div></div>
+
+<section class="gallery section" id="gallery">
+ <div class="section-head">
+  <div>
+   <p class="eyebrow green" data-en="REAL WORK · REAL STORIES" data-ur="حقیقی کام · حقیقی کہانیاں">REAL WORK · REAL STORIES</p>
+   <h2 data-en="Our activity gallery." data-ur="ہماری سرگرمیوں کی گیلری۔">Our activity gallery.</h2>
+  </div>
+  <p data-en="Photos and videos from verified activities will appear here." data-ur="تصدیق شدہ سرگرمیوں کی تصاویر اور ویڈیوز یہاں دکھائی جائیں گی۔">Photos and videos from verified activities will appear here.</p>
+ </div>
+ <div id="galleryGrid" class="gallery-grid">
+  <div class="empty-state">
+   <span>✧</span>
+   <h3 data-en="Our stories will appear here" data-ur="ہماری سرگرمیاں یہاں دکھائی دیں گی">Our stories will appear here</h3>
+   <p data-en="The organization administrator can publish photos and videos from the private admin panel." data-ur="تنظیم کا منتظم نجی ایڈمن پینل سے تصاویر اور ویڈیوز شائع کر سکتا ہے۔">The organization administrator can publish photos and videos from the private admin panel.</p>
+  </div>
+ </div>
 </section>
-<section class="reports section" id="reports"><div><p class="eyebrow" data-en="ACCOUNTABILITY" data-ur="جوابدہی">ACCOUNTABILITY</p><h2 data-en="Trust is built through <em>transparency.</em>" data-ur="اعتماد <em>شفافیت</em> سے بنتا ہے۔">Trust is built through <em>transparency.</em></h2><p data-en="We will publish activity updates and financial summaries so supporters can understand how contributions are used. No impact figures will be published unless verified." data-ur="ہم سرگرمیوں کی تازہ معلومات اور مالی خلاصے شائع کریں گے تاکہ معاونین جان سکیں کہ عطیات کہاں استعمال ہوئے۔ تصدیق کے بغیر کامیابی کے اعداد و شمار شائع نہیں کیے جائیں گے۔">We will publish activity updates and financial summaries so supporters can understand how contributions are used. No impact figures will be published unless verified.</p></div><div class="report-box"><span class="report-symbol">◎</span><h3 data-en="Open reporting" data-ur="کھلی رپورٹس">Open reporting</h3><p data-en="Reports and project updates will be added here as they become available." data-ur="رپورٹس اور منصوبوں کی تازہ معلومات دستیاب ہونے پر یہاں شامل کی جائیں گی۔">Reports and project updates will be added here as they become available.</p></div></section>
-<section class="donate section" id="donate"><div><p class="eyebrow" data-en="BE PART OF THE CHANGE" data-ur="تبدیلی کا حصہ بنیں">BE PART OF THE CHANGE</p><h2 data-en="Your support can open a door." data-ur="آپ کا تعاون نئی راہیں کھول سکتا ہے۔">Your support can open a door.</h2><p data-en="We are preparing a responsible donation process. Donation details will be published only after the organization's legal and payment arrangements are verified." data-ur="ہم عطیات وصول کرنے کا ذمہ دارانہ نظام تیار کر رہے ہیں۔ عطیات کی تفصیلات تنظیم کے قانونی اور ادائیگی کے انتظامات کی تصدیق کے بعد ہی شائع کی جائیں گی۔">We are preparing a responsible donation process. Donation details will be published only after the organization's legal and payment arrangements are verified.</p></div><div class="donate-side"><span class="donate-mark">Z</span><strong data-en="Together, for a better tomorrow." data-ur="مل کر ایک بہتر کل کے لیے۔">Together, for a better tomorrow.</strong><a class="btn btn-light" href="#contact" data-en="Contact the Organization" data-ur="تنظیم سے رابطہ کریں">Contact the Organization</a></div></section>
-<section class="contact section" id="contact"><div><p class="eyebrow green" data-en="GET IN TOUCH" data-ur="رابطہ کریں">GET IN TOUCH</p><h2 data-en="Let's make a difference." data-ur="آئیے تبدیلی لائیں۔">Let's make a difference.</h2></div><div class="contact-info"><p><span data-en="Head Office" data-ur="مرکزی دفتر">Head Office</span><strong>District Multan, Punjab, Pakistan</strong></p><p><span data-en="Founder & Chairman" data-ur="بانی و چیئرمین">Founder & Chairman</span><strong>Muhammad Ashraf Bhatti</strong></p><p class="small-note" data-en="Official phone number and email will be added after they are confirmed." data-ur="سرکاری فون نمبر اور ای میل کی تصدیق کے بعد شامل کیے جائیں گے۔">Official phone number and email will be added after they are confirmed.</p></div></section>
+
+<section class="reports section" id="reports">
+ <div>
+  <p class="eyebrow" data-en="ACCOUNTABILITY" data-ur="جوابدہی">ACCOUNTABILITY</p>
+  <h2 data-en="Trust is built through <em>transparency.</em>" data-ur="اعتماد <em>شفافیت</em> سے بنتا ہے۔">Trust is built through <em>transparency.</em></h2>
+  <p data-en="We will publish activity updates and financial summaries so supporters can understand how contributions are used. No impact figures will be published unless verified." data-ur="ہم سرگرمیوں کی تازہ معلومات اور مالی خلاصے شائع کریں گے تاکہ معاونین جان سکیں کہ عطیات کہاں استعمال ہوئے۔ تصدیق کے بغیر کامیابی کے اعداد و شمار شائع نہیں کیے جائیں گے۔">We will publish activity updates and financial summaries so supporters can understand how contributions are used. No impact figures will be published unless verified.</p>
+ </div>
+ <div class="report-box">
+  <span class="report-symbol">◎</span>
+  <h3 data-en="Open reporting" data-ur="کھلی رپورٹس">Open reporting</h3>
+  <p data-en="Reports and project updates will be added here as they become available." data-ur="رپورٹس اور منصوبوں کی تازہ معلومات دستیاب ہونے پر یہاں شامل کی جائیں گی۔">Reports and project updates will be added here as they become available.</p>
+ </div>
+</section>
+
+<section class="donate section" id="donate">
+ <div>
+  <p class="eyebrow" data-en="BE PART OF THE CHANGE" data-ur="تبدیلی کا حصہ بنیں">BE PART OF THE CHANGE</p>
+  <h2 data-en="Your support can open a door." data-ur="آپ کا تعاون نئی راہیں کھول سکتا ہے۔">Your support can open a door.</h2>
+  <p data-en="We are preparing a responsible donation process. Donation details will be published only after the organization's legal and payment arrangements are verified." data-ur="ہم عطیات وصول کرنے کا ذمہ دارانہ نظام تیار کر رہے ہیں۔ عطیات کی تفصیلات تنظیم کے قانونی اور ادائیگی کے انتظامات کی تصدیق کے بعد ہی شائع کی جائیں گی۔">We are preparing a responsible donation process. Donation details will be published only after the organization's legal and payment arrangements are verified.</p>
+ </div>
+ <div class="donate-side">
+  <span class="donate-mark">Z</span>
+  <strong data-en="Together, for a better tomorrow." data-ur="مل کر ایک بہتر کل کے لیے۔">Together, for a better tomorrow.</strong>
+  <a class="btn btn-light" href="#contact" data-en="Contact the Organization" data-ur="تنظیم سے رابطہ کریں">Contact the Organization</a>
+ </div>
+</section>
+
+<section class="contact section" id="contact">
+ <div>
+  <p class="eyebrow green" data-en="GET IN TOUCH" data-ur="رابطہ کریں">GET IN TOUCH</p>
+  <h2 data-en="Let's make a difference." data-ur="آئیے تبدیلی لائیں۔">Let's make a difference.</h2>
+ </div>
+ <div class="contact-info">
+  <p><span data-en="Head Office" data-ur="مرکزی دفتر">Head Office</span><strong>District Multan, Punjab, Pakistan</strong></p>
+  <p><span data-en="Founder & Chairman" data-ur="بانی و چیئرمین">Founder & Chairman</span><strong>Muhammad Ashraf Bhatti</strong></p>
+  <p class="small-note" data-en="Official phone number and email will be added after they are confirmed." data-ur="سرکاری فون نمبر اور ای میل کی تصدیق کے بعد شامل کیے جائیں گے۔">Official phone number and email will be added after they are confirmed.</p>
+ </div>
+</section>
 </main>
-<footer><a class="brand footer-brand" href="#"><span class="brand-mark">Z</span><span>Zimal <small>Research Organization</small></span></a><span>© <span id="year"></span> Zimal Research Organization</span><a href="admin.html">Admin</a></footer>
-</body></html>
+
+<footer>
+ <a class="brand footer-brand" href="#"><span class="brand-mark">Z</span><span>Zimal <small>Research Organization</small></span></a>
+ <span>© <span id="year"></span> Zimal Research Organization</span>
+ <a href="admin.html">Admin</a>
+</footer>
+</body>
+</html>
