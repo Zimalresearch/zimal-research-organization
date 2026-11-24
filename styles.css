@@ -250,3 +250,30 @@ footer{gap:15px;flex-wrap:wrap}
     height: 380px;
   }
 }
+.founder-details {
+  width: 100%;
+  min-width: 0;
+  overflow: visible;
+}
+
+.founder-details h2 {
+  font-size: clamp(28px, 3.5vw, 44px);
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+.founder-details h3 {
+  line-height: 1.5;
+  white-space: normal;
+}
+
+.founder-details p {
+  overflow-wrap: anywhere;
+}
+
+.founder-photo img {
+  height: auto;
+  max-height: 520px;
+  object-fit: contain;
+}
