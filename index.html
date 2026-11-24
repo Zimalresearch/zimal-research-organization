@@ -10,6 +10,35 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="config.js"></script>
 <script defer src="app.js"></script>
+
+<style>
+/* Contact buttons */
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+.contact-links .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 120px;
+  text-align: center;
+  text-decoration: none;
+}
+@media (max-width: 520px) {
+  .contact-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .contact-links .btn {
+    min-width: 0;
+    width: 100%;
+  }
+}
+</style>
+
 </head>
 <body>
 <header class="topbar">
@@ -130,11 +159,35 @@
  <div>
   <p class="eyebrow green" data-en="GET IN TOUCH" data-ur="رابطہ کریں">GET IN TOUCH</p>
   <h2 data-en="Let's make a difference." data-ur="آئیے تبدیلی لائیں۔">Let's make a difference.</h2>
+  <p data-en="Connect with Zimal Research Organization through our official platforms."
+     data-ur="زمل ریسرچ آرگنائزیشن سے ہمارے سرکاری پلیٹ فارمز کے ذریعے رابطہ کریں۔">
+     Connect with Zimal Research Organization through our official platforms.
+  </p>
  </div>
  <div class="contact-info">
-  <p><span data-en="Head Office" data-ur="مرکزی دفتر">Head Office</span><strong>District Multan, Punjab, Pakistan</strong></p>
-  <p><span data-en="Founder & Chairman" data-ur="بانی و چیئرمین">Founder & Chairman</span><strong>Muhammad Ashraf Bhatti</strong></p>
-  <p class="small-note" data-en="Official phone number and email will be added after they are confirmed." data-ur="سرکاری فون نمبر اور ای میل کی تصدیق کے بعد شامل کیے جائیں گے۔">Official phone number and email will be added after they are confirmed.</p>
+  <p>
+   <span data-en="Head Office" data-ur="مرکزی دفتر">Head Office</span>
+   <strong>District Multan, Punjab, Pakistan</strong>
+  </p>
+  <p>
+   <span data-en="Founder & Chairman" data-ur="بانی و چیئرمین">Founder & Chairman</span>
+   <strong>Muhammad Ashraf Bhatti</strong>
+  </p>
+  <div class="contact-links">
+   <a class="btn" href="mailto:bauquets40@gmail.com"
+      data-en="Email Us" data-ur="ای میل کریں">Email Us</a>
+   <a class="btn" href="https://wa.me/923078150477"
+      target="_blank" rel="noopener noreferrer"
+      data-en="WhatsApp" data-ur="واٹس ایپ">WhatsApp</a>
+   <a class="btn btn-outline"
+      href="https://www.facebook.com/profile.php?id=61569368128881"
+      target="_blank" rel="noopener noreferrer"
+      data-en="Facebook" data-ur="فیس بک">Facebook</a>
+   <a class="btn btn-outline"
+      href="https://www.youtube.com/channel/UCw5jQSvUtOYPfA_OSXQItYw"
+      target="_blank" rel="noopener noreferrer"
+      data-en="YouTube" data-ur="یوٹیوب">YouTube</a>
+  </div>
  </div>
 </section>
 </main>
