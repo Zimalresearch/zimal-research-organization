@@ -127,6 +127,15 @@
 @media(max-width:850px){.roadmap-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:520px){.roadmap-grid{grid-template-columns:1fr}.roadmap-card{padding:20px}}
 
+
+/* YOUTUBE VIDEO SECTION */
+.youtube-videos{background:#102b3a;color:#fff}
+.youtube-videos .section-head h2{color:#fff}
+.youtube-videos .section-head>p{color:#d2e0e5}
+.youtube-video-frame{width:100%;max-width:1000px;margin:28px auto 0;aspect-ratio:16/9;background:#071923;border:1px solid #315365;border-radius:14px;overflow:hidden;box-shadow:0 14px 38px #0004}
+.youtube-video-frame iframe{display:block;width:100%;height:100%;border:0}
+.youtube-channel-link{display:flex;justify-content:center;margin-top:20px}
+@media(max-width:600px){.youtube-videos{padding-left:18px;padding-right:18px}.youtube-video-frame{border-radius:9px}}
 </style>
 </head>
 
@@ -145,6 +154,7 @@
     <a href="#research" data-en="Research" data-ur="تحقیق">Research</a>
     <a href="#roadmap" data-en="Our Roadmap" data-ur="ہمارا لائحہ عمل">Our Roadmap</a>
     <a href="#gallery" data-en="Gallery" data-ur="گیلری">Gallery</a>
+    <a href="#videos" data-en="Videos" data-ur="ویڈیوز">Videos</a>
     <a href="#reports" data-en="Reports" data-ur="رپورٹس">Reports</a>
     <a href="#contact" data-en="Contact" data-ur="رابطہ">Contact</a>
     <a href="apply.html" data-en="Join ZRO" data-ur="زرو میں شامل ہوں">Join ZRO</a>
@@ -388,6 +398,35 @@
          The organization administrator can publish photos and videos from the private admin panel.
       </p>
     </div>
+  </div>
+</section>
+
+<!-- LATEST YOUTUBE VIDEOS -->
+<section class="youtube-videos section" id="videos">
+  <div class="section-head">
+    <div>
+      <p class="eyebrow" data-en="WATCH OUR WORK" data-ur="ہمارا کام دیکھیے">WATCH OUR WORK</p>
+      <h2 data-en="Latest videos from ZRO." data-ur="زرو کی تازہ ویڈیوز۔">Latest videos from ZRO.</h2>
+    </div>
+    <p data-en="Watch videos published on the Zimal Research Organization YouTube channel. New uploads from the channel playlist can appear here automatically."
+       data-ur="زمل ریسرچ آرگنائزیشن کے یوٹیوب چینل پر شائع کی گئی ویڈیوز دیکھیے۔ چینل کی نئی اپ لوڈ کی گئی ویڈیوز اس پلے لسٹ میں خودکار طور پر ظاہر ہو سکتی ہیں۔">
+       Watch videos published on the Zimal Research Organization YouTube channel. New uploads from the channel playlist can appear here automatically.
+    </p>
+  </div>
+  <div class="youtube-video-frame">
+    <iframe
+      src="https://www.youtube-nocookie.com/embed/videoseries?list=UUw5jQSvUtOYPfA_OSXQItYw"
+      title="Zimal Research Organization YouTube videos"
+      loading="lazy"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen>
+    </iframe>
+  </div>
+  <div class="youtube-channel-link">
+    <a class="btn" href="https://www.youtube.com/channel/UCw5jQSvUtOYPfA_OSXQItYw"
+       target="_blank" rel="noopener noreferrer"
+       data-en="Visit our YouTube Channel" data-ur="ہمارا یوٹیوب چینل دیکھیں">Visit our YouTube Channel</a>
   </div>
 </section>
 
