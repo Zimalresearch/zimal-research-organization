@@ -98,6 +98,35 @@
     font-size: 15px;
   }
 }
+
+/* COMMUNITY RESEARCH SECTION */
+.research{background:#f4f7f5}
+.research-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.research-card{position:relative;padding:25px 23px;background:#fff;border:1px solid #e0e9e4;border-radius:10px;box-shadow:0 8px 24px #102d4010}
+.research-number{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:#e4f2ec;color:#14785f;font-size:12px;font-weight:800;margin-bottom:16px}
+.research-card h3{font:600 19px 'Playfair Display',serif;color:#17384a;margin:0 0 10px}
+.research-card p,.research-action p{font-size:13px;line-height:1.85;color:#64747b;margin:0}
+.research-action{display:grid;grid-template-columns:1.4fr .8fr;gap:35px;align-items:center;margin-top:24px;padding:30px;background:#e8f1ec;border-radius:10px}
+.research-action h3{font:600 23px 'Playfair Display',serif;color:#17384a;margin:7px 0 12px}
+.research-action aside{padding:20px 22px;border-left:3px solid #159879;background:#fff;border-radius:6px}
+.research-action aside strong{display:block;color:#17384a;margin-bottom:8px}
+[dir=rtl] .research-action aside{border-left:0;border-right:3px solid #159879}
+@media(max-width:850px){.research-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.research-action{grid-template-columns:1fr}}
+@media(max-width:520px){.research-grid{grid-template-columns:1fr}.research-card{padding:22px}}
+
+
+/* ORGANIZATION ROADMAP */
+.roadmap{background:#fff}
+.roadmap-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.roadmap-card{padding:23px;background:#f7faf8;border:1px solid #e1ebe5;border-radius:10px}
+.roadmap-card h3{font:600 18px 'Playfair Display',serif;color:#17384a;margin:0 0 9px}
+.roadmap-card p{font-size:13px;line-height:1.85;color:#64747b;margin:0}
+.roadmap-note{margin-top:22px;padding:25px 28px;background:#e8f1ec;border-left:3px solid #159879;border-radius:8px}
+[dir=rtl] .roadmap-note{border-left:0;border-right:3px solid #159879}
+.roadmap-note p{font-size:13px;line-height:1.9;color:#52676a;margin:0}
+@media(max-width:850px){.roadmap-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){.roadmap-grid{grid-template-columns:1fr}.roadmap-card{padding:20px}}
+
 </style>
 </head>
 
@@ -113,9 +142,12 @@
     <a href="#about" data-en="About" data-ur="تعارف">About</a>
     <a href="#founder" data-en="Founder" data-ur="بانی">Founder</a>
     <a href="#work" data-en="Our Work" data-ur="ہمارے کام">Our Work</a>
+    <a href="#research" data-en="Research" data-ur="تحقیق">Research</a>
+    <a href="#roadmap" data-en="Our Roadmap" data-ur="ہمارا لائحہ عمل">Our Roadmap</a>
     <a href="#gallery" data-en="Gallery" data-ur="گیلری">Gallery</a>
     <a href="#reports" data-en="Reports" data-ur="رپورٹس">Reports</a>
     <a href="#contact" data-en="Contact" data-ur="رابطہ">Contact</a>
+    <a href="apply.html" data-en="Join ZRO" data-ur="زرو میں شامل ہوں">Join ZRO</a>
   </nav>
 
   <div class="top-actions">
@@ -257,6 +289,81 @@
   </div>
 </section>
 
+<!-- RESEARCH: MOZAA AHEER -->
+<section class="research section" id="research">
+  <div class="section-head">
+    <div>
+      <p class="eyebrow green" data-en="COMMUNITY RESEARCH · MOZAA AHEER" data-ur="کمیونٹی تحقیق · موضع آہیر">COMMUNITY RESEARCH · MOZAA AHEER</p>
+      <h2 data-en="Understanding challenges. Creating solutions." data-ur="مسائل کو سمجھنا، حل کی راہیں بنانا۔">Understanding challenges. Creating solutions.</h2>
+    </div>
+    <p data-en="Our community-focused research explores barriers affecting families in Moza Aaheer and helps identify practical priorities for future action." data-ur="ہماری کمیونٹی پر مبنی تحقیق موضع آہیر کے خاندانوں کو درپیش رکاوٹوں کا جائزہ لیتی ہے اور آئندہ عملی اقدامات کی ترجیحات طے کرنے میں مدد دیتی ہے۔">Our community-focused research explores barriers affecting families in Moza Aaheer and helps identify practical priorities for future action.</p>
+  </div>
+
+  <div class="research-grid">
+    <article class="research-card">
+      <span class="research-number">01</span>
+      <h3 data-en="Educational Gaps" data-ur="تعلیمی سہولیات کی کمی">Educational Gaps</h3>
+      <p data-en="The research highlights limited nearby school access and financial and social barriers that can prevent children from continuing their education." data-ur="تحقیق میں قریبی اسکولوں تک محدود رسائی اور مالی و سماجی رکاوٹوں کی نشاندہی کی گئی ہے جو بچوں کی تعلیم جاری رکھنے میں مشکلات پیدا کر سکتی ہیں۔">The research highlights limited nearby school access and financial and social barriers that can prevent children from continuing their education.</p>
+    </article>
+    <article class="research-card">
+      <span class="research-number">02</span>
+      <h3 data-en="Infrastructure & Access" data-ur="بنیادی ڈھانچہ اور رسائی">Infrastructure & Access</h3>
+      <p data-en="Poor roads and limited access to essential services can make it harder for residents to reach education, healthcare and markets." data-ur="خراب سڑکیں اور بنیادی سہولیات تک محدود رسائی رہائشیوں کے لیے تعلیم، صحت اور بازاروں تک پہنچنا مشکل بنا سکتی ہیں۔">Poor roads and limited access to essential services can make it harder for residents to reach education, healthcare and markets.</p>
+    </article>
+    <article class="research-card">
+      <span class="research-number">03</span>
+      <h3 data-en="Clean Water & Health" data-ur="صاف پانی اور صحت">Clean Water & Health</h3>
+      <p data-en="Access to safe drinking water and improved sanitation are important community priorities. Water quality and health concerns require careful local assessment." data-ur="صاف پینے کے پانی اور بہتر صفائی تک رسائی کمیونٹی کی اہم ترجیحات ہیں۔ پانی کے معیار اور صحت سے متعلق مسائل کے لیے مقامی سطح پر محتاط جائزہ ضروری ہے۔">Access to safe drinking water and improved sanitation are important community priorities. Water quality and health concerns require careful local assessment.</p>
+    </article>
+    <article class="research-card">
+      <span class="research-number">04</span>
+      <h3 data-en="Food Security" data-ur="غذائی تحفظ">Food Security</h3>
+      <p data-en="The findings point to household food insecurity and the need to explore sustainable family support and nutrition awareness initiatives." data-ur="تحقیق میں گھریلو غذائی عدم تحفظ اور خاندانوں کی پائیدار مدد و غذائیت سے متعلق آگاہی کے اقدامات کی ضرورت سامنے آئی ہے۔">The findings point to household food insecurity and the need to explore sustainable family support and nutrition awareness initiatives.</p>
+    </article>
+    <article class="research-card">
+      <span class="research-number">05</span>
+      <h3 data-en="Economic Vulnerability" data-ur="معاشی مشکلات">Economic Vulnerability</h3>
+      <p data-en="Dependence on livestock and limited alternative livelihood options can leave households exposed to unstable income. Skills and employment pathways are important areas for action." data-ur="مویشیوں پر انحصار اور متبادل روزگار کے محدود مواقع خاندانوں کی آمدنی کو غیر مستحکم بنا سکتے ہیں۔ ہنر اور روزگار کے مواقع اہم عملی ترجیحات ہیں۔">Dependence on livestock and limited alternative livelihood options can leave households exposed to unstable income. Skills and employment pathways are important areas for action.</p>
+    </article>
+  </div>
+
+  <div class="research-action">
+    <div>
+      <p class="eyebrow green" data-en="FROM RESEARCH TO ACTION" data-ur="تحقیق سے عملی اقدامات تک">FROM RESEARCH TO ACTION</p>
+      <h3 data-en="Turning local insight into practical support." data-ur="مقامی معلومات کو عملی مدد میں بدلنا۔">Turning local insight into practical support.</h3>
+      <p data-en="Based on these identified priorities, ZRO is focusing on education, health, infrastructure awareness, food security and livelihood opportunities. The organization has shared a recent initiative aimed at supporting school enrolment for 50 children; implementation details and outcomes should be published as they are confirmed." data-ur="ان ترجیحات کی بنیاد پر زرو تعلیم، صحت، بنیادی سہولیات سے متعلق آگاہی، غذائی تحفظ اور روزگار کے مواقع پر توجہ دے رہی ہے۔ تنظیم نے 50 بچوں کے اسکول داخلے میں مدد کے حالیہ اقدام کا ذکر کیا ہے؛ اس کی عملی تفصیلات اور نتائج کی تصدیق کے بعد انہیں شائع کیا جانا چاہیے۔">Based on these identified priorities, ZRO is focusing on education, health, infrastructure awareness, food security and livelihood opportunities. The organization has shared a recent initiative aimed at supporting school enrolment for 50 children; implementation details and outcomes should be published as they are confirmed.</p>
+    </div>
+    <aside>
+      <strong data-en="Research with responsibility" data-ur="ذمہ دارانہ تحقیق">Research with responsibility</strong>
+      <p data-en="These are community research findings and priorities, not a substitute for independently verified statistics or official assessments. ZRO will share supporting evidence and progress updates when available." data-ur="یہ کمیونٹی تحقیق کے نتائج اور ترجیحات ہیں، آزادانہ طور پر تصدیق شدہ اعداد و شمار یا سرکاری جائزوں کا متبادل نہیں۔ زرو دستیاب ہونے پر معاون شواہد اور پیش رفت کی معلومات شیئر کرے گی۔">These are community research findings and priorities, not a substitute for independently verified statistics or official assessments. ZRO will share supporting evidence and progress updates when available.</p>
+    </aside>
+  </div>
+</section>
+
+
+<!-- ORGANIZATIONAL ROADMAP -->
+<section class="roadmap section" id="roadmap">
+  <div class="section-head">
+    <div>
+      <p class="eyebrow green" data-en="OUR DIRECTION · OUR COMMITMENT" data-ur="ہماری سمت · ہمارا عزم">OUR DIRECTION · OUR COMMITMENT</p>
+      <h2 data-en="A clear plan for meaningful progress." data-ur="بامعنی ترقی کے لیے واضح منصوبہ۔">A clear plan for meaningful progress.</h2>
+    </div>
+    <p data-en="ZRO aims to combine responsible research, community development and practical support. The priorities below describe an organizational roadmap and areas for continued development." data-ur="زرو ذمہ دارانہ تحقیق، کمیونٹی کی ترقی اور عملی معاونت کو یکجا کرنے کا ارادہ رکھتی ہے۔ درج ذیل ترجیحات تنظیم کے آئندہ لائحہ عمل اور ترقی کے شعبوں کو ظاہر کرتی ہیں۔">ZRO aims to combine responsible research, community development and practical support. The priorities below describe an organizational roadmap and areas for continued development.</p>
+  </div>
+  <div class="roadmap-grid">
+    <article class="roadmap-card"><h3 data-en="Mission & Vision" data-ur="مشن اور وژن">Mission & Vision</h3><p data-en="Work toward a society where communities can access education, essential services, fair opportunities and dignified support. Use research and community engagement to identify needs and guide practical responses." data-ur="ایسے معاشرے کے لیے کام کرنا جہاں کمیونٹیز کو تعلیم، بنیادی سہولیات، منصفانہ مواقع اور باعزت معاونت میسر ہو۔ تحقیق اور عوامی رابطے کے ذریعے ضروریات کی نشاندہی اور عملی اقدامات کی رہنمائی کرنا۔">Work toward a society where communities can access education, essential services, fair opportunities and dignified support. Use research and community engagement to identify needs and guide practical responses.</p></article>
+    <article class="roadmap-card"><h3 data-en="Research Strategy" data-ur="تحقیقی حکمتِ عملی">Research Strategy</h3><p data-en="Define clear research questions and objectives. Where appropriate, use surveys, interviews, case studies and field visits, while protecting privacy and checking information before publication." data-ur="تحقیق کے واضح سوالات اور مقاصد طے کرنا۔ ضرورت کے مطابق سروے، انٹرویوز، کیس اسٹڈیز اور فیلڈ وزٹس کے ذریعے معلومات جمع کرنا، رازداری کا تحفظ کرنا اور اشاعت سے پہلے معلومات کی جانچ کرنا۔">Define clear research questions and objectives. Where appropriate, use surveys, interviews, case studies and field visits, while protecting privacy and checking information before publication.</p></article>
+    <article class="roadmap-card"><h3 data-en="Governance & Public Services" data-ur="طرزِ حکمرانی اور عوامی خدمات">Governance & Public Services</h3><p data-en="Potential research themes include transparency, accountability, corruption risks and the quality of public services. Findings should be evidence-based, fair and presented without unsupported allegations." data-ur="ممکنہ تحقیقی موضوعات میں شفافیت، جوابدہی، بدعنوانی کے خطرات اور عوامی خدمات کا معیار شامل ہیں۔ نتائج شواہد پر مبنی، غیر جانب دار اور غیر مصدقہ الزامات سے پاک ہونے چاہییں۔">Potential research themes include transparency, accountability, corruption risks and the quality of public services. Findings should be evidence-based, fair and presented without unsupported allegations.</p></article>
+    <article class="roadmap-card"><h3 data-en="Funding & Resources" data-ur="مالی وسائل اور معاونت">Funding & Resources</h3><p data-en="Explore suitable grants, responsible donations, crowdfunding and partnerships. Publish clear project budgets and explain how received funds are used." data-ur="مناسب گرانٹس، ذمہ دارانہ عطیات، اجتماعی فنڈنگ اور شراکت داری کے امکانات تلاش کرنا۔ منصوبوں کے واضح بجٹ شائع کرنا اور موصول ہونے والی رقم کے استعمال کی وضاحت کرنا۔">Explore suitable grants, responsible donations, crowdfunding and partnerships. Publish clear project budgets and explain how received funds are used.</p></article>
+    <article class="roadmap-card"><h3 data-en="Team & Volunteers" data-ur="ٹیم اور رضاکار">Team & Volunteers</h3><p data-en="Build a capable team through transparent recruitment, suitable training and clear responsibilities. Seek guidance from qualified researchers, educators and community representatives." data-ur="شفاف بھرتی، مناسب تربیت اور واضح ذمہ داریوں کے ذریعے قابل ٹیم تشکیل دینا۔ اہل محققین، اساتذہ اور کمیونٹی نمائندوں سے رہنمائی حاصل کرنا۔">Build a capable team through transparent recruitment, suitable training and clear responsibilities. Seek guidance from qualified researchers, educators and community representatives.</p></article>
+    <article class="roadmap-card"><h3 data-en="Partnerships & Networking" data-ur="شراکت داری اور روابط">Partnerships & Networking</h3><p data-en="Develop constructive relationships with universities, civil-society groups, NGOs, experts and local stakeholders where shared goals and responsibilities are clear." data-ur="جامعات، سول سوسائٹی، غیر سرکاری تنظیموں، ماہرین اور مقامی متعلقہ افراد کے ساتھ تعمیری روابط قائم کرنا، جہاں مشترکہ مقاصد اور ذمہ داریاں واضح ہوں۔">Develop constructive relationships with universities, civil-society groups, NGOs, experts and local stakeholders where shared goals and responsibilities are clear.</p></article>
+    <article class="roadmap-card"><h3 data-en="From Findings to Action" data-ur="تحقیق سے عملی اقدامات تک">From Findings to Action</h3><p data-en="Use verified findings to develop practical recommendations, community awareness activities and proposals for improved access to education, clean water, health services and livelihoods." data-ur="تصدیق شدہ نتائج کی بنیاد پر عملی تجاویز، عوامی آگاہی کی سرگرمیاں اور تعلیم، صاف پانی، صحت کی سہولیات اور روزگار تک بہتر رسائی کے منصوبے تیار کرنا۔">Use verified findings to develop practical recommendations, community awareness activities and proposals for improved access to education, clean water, health services and livelihoods.</p></article>
+    <article class="roadmap-card"><h3 data-en="Monitoring & Evaluation" data-ur="نگرانی اور جائزہ">Monitoring & Evaluation</h3><p data-en="Set realistic indicators, review progress regularly, listen to community feedback and report both achievements and challenges honestly." data-ur="حقیقت پسندانہ پیمانے مقرر کرنا، باقاعدگی سے پیش رفت کا جائزہ لینا، کمیونٹی کی رائے سننا اور کامیابیوں کے ساتھ مشکلات بھی دیانت داری سے رپورٹ کرنا۔">Set realistic indicators, review progress regularly, listen to community feedback and report both achievements and challenges honestly.</p></article>
+    <article class="roadmap-card"><h3 data-en="Long-term Sustainability" data-ur="طویل مدتی پائیداری">Long-term Sustainability</h3><p data-en="Strengthen organizational capacity, maintain responsible financial practices and continue research based on changing community needs and available resources." data-ur="تنظیمی صلاحیت بہتر بنانا، ذمہ دارانہ مالی طریقہ کار اپنانا اور کمیونٹی کی بدلتی ضروریات و دستیاب وسائل کے مطابق تحقیق جاری رکھنا۔">Strengthen organizational capacity, maintain responsible financial practices and continue research based on changing community needs and available resources.</p></article>
+  </div>
+  <div class="roadmap-note"><p data-en="Proposed local research focus: Basti Loharaan Wali. Possible topics include community concerns, public-service delivery, governance and local development. Any specific finding or allegation will be published only after appropriate evidence checks, consent where needed and a fair opportunity for relevant parties to respond. ZRO will share progress and partnerships only when they are confirmed." data-ur="مجوزہ مقامی تحقیقی توجہ: بستی لوہاران والی۔ ممکنہ موضوعات میں کمیونٹی کے مسائل، عوامی خدمات کی فراہمی، طرزِ حکمرانی اور مقامی ترقی شامل ہیں۔ کسی بھی مخصوص نتیجے یا الزام کو مناسب شواہد کی جانچ، ضرورت کے مطابق رضامندی اور متعلقہ فریق کو جواب کا منصفانہ موقع دیے بغیر شائع نہیں کیا جائے گا۔ زرو پیش رفت اور شراکت داری کی معلومات کی تصدیق کے بعد ہی شیئر کرے گی۔">Proposed local research focus: Basti Loharaan Wali. Possible topics include community concerns, public-service delivery, governance and local development. Any specific finding or allegation will be published only after appropriate evidence checks, consent where needed and a fair opportunity for relevant parties to respond. ZRO will share progress and partnerships only when they are confirmed.</p></div>
+</section>
+
 <!-- GALLERY -->
 <section class="gallery section" id="gallery">
   <div class="section-head">
@@ -307,6 +414,20 @@
        Reports and project updates will be added here as they become available.
     </p>
   </div>
+</section>
+
+
+<!-- LEGAL & TRANSPARENCY -->
+<section class="transparency section" id="transparency">
+  <div class="section-head"><div><p class="eyebrow green">ACCOUNTABILITY</p><h2>Legal & Transparency Center</h2></div>
+  <p>We are preparing our governance documents, verification procedures and public reporting. Registration or approval will only be claimed after official confirmation.</p></div>
+  <div class="transparency-grid">
+    <article><h3>Legal status</h3><p>ZRO's registration and approval details will be published here when officially issued.</p></article>
+    <article><h3>People & safeguarding</h3><p>Applicants are subject to identity checks, role-based screening and review of police clearance documents. Uploading a certificate alone does not confirm its authenticity.</p></article>
+    <article><h3>Financial accountability</h3><p>Financial summaries and supporting reports will be published when verified. Donation payment details are not currently available.</p></article>
+    <article><h3>Privacy</h3><p>Applicant identity documents and police certificates are private and restricted to authorized reviewers. They will never appear in the public gallery.</p></article>
+  </div>
+  <p class="legal-note">ZRO is currently preparing its systems. This page is not evidence of government registration, licensing or endorsement.</p>
 </section>
 
 <!-- DONATION -->
@@ -404,6 +525,7 @@
   </div>
 </section>
 
+<section class="join-cta section"><h2>Work with ZRO</h2><p>Interested in volunteering or paid roles? Submit an application for review.</p><a class="btn" href="apply.html">Apply to Join ZRO</a></section>
 </main>
 
 <!-- FOOTER -->
