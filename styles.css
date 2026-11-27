@@ -334,3 +334,20 @@ footer{padding:27px 6.5%;display:flex;align-items:center;justify-content:space-b
   .contact-links .contact-btn{min-width:0;width:100%;padding:12px 8px;gap:7px}
   .contact-icon{width:24px;height:24px;font-size:15px}
 }
+
+/* FINAL LAYOUT SAFEGUARDS */
+html,body{max-width:100%;overflow-x:hidden}
+img,video{max-width:100%}
+.intro>*,.reports>*,.donate>*,.contact>*,.founder-profile>*{min-width:0}
+.topbar nav{min-width:0}
+.hero-content,.section-head,.founder-details{min-width:0}
+@media(max-width:850px){
+  .topbar nav{scrollbar-width:thin}
+  .founder-details h2{overflow-wrap:anywhere}
+}
+@media(max-width:520px){
+  .section{padding-left:6%;padding-right:6%}
+  .hero{padding-left:7%;padding-right:7%}
+  .hero h1{letter-spacing:-1.5px}
+  .hero-note{font-size:9px}
+}
