@@ -43,11 +43,37 @@
     if (!data || !data.length) list.innerHTML = '<p class="muted">No posts yet. Publish your first activity above.</p>';
   }
 
-  async function showSession() {
+
+  async function refreshApplications() {
+    const list=$("#applicationList"); if(!list) return;
+    const {data,error}=await db.from("zro_applications").select("*").order("created_at",{ascending:false});
+    if(error){list.textContent="Could not load applications: "+error.message;return;}
+    list.innerHTML="";
+    (data||[]).forEach(app=>{
+      const item=document.createElement("article");item.className="admin-post";
+      const info=document.createElement("div");info.className="admin-post-info";
+      const title=document.createElement("strong");title.textContent=app.full_name+" — "+app.application_type;
+      const detail=document.createElement("p");detail.textContent=[app.email,app.phone,app.city,app.department,"Status: "+app.status].join(" · ");
+      const docs=document.createElement("div");docs.className="admin-post-actions";
+      if(app.cv_file_path){const cv=document.createElement("button");cv.className="mini-btn";cv.textContent="View CV";cv.addEventListener("click",async()=>{const {data,error}=await db.storage.from("zro-private-applications").createSignedUrl(app.cv_file_path,60);if(error){alert(error.message);return;}window.open(data.signedUrl,"_blank","noopener");});docs.appendChild(cv);}
+      const approve=document.createElement("button");approve.className="mini-btn";approve.textContent="Approve";
+      approve.addEventListener("click",()=>setApplicationStatus(app.id,"approved"));
+      const reject=document.createElement("button");reject.className="mini-btn";reject.textContent="Reject";
+      reject.addEventListener("click",()=>setApplicationStatus(app.id,"rejected"));
+      docs.append(approve,reject);info.append(title,detail);item.append(info,docs);list.append(item);
+    });
+    if(!data||!data.length)list.textContent="No applications received yet.";
+  }
+  async function setApplicationStatus(id,status){
+    if(!confirm("Set this application to "+status+"?"))return;
+    const {error}=await db.from("zro_applications").update({status,reviewed_at:new Date().toISOString()}).eq("id",id);
+    if(error){alert(error.message);return;}refreshApplications();
+  }
+\n  async function showSession() {
     const { data } = await db.auth.getSession();
     const session = data.session;
     $("#loginBox").hidden = !!session; $("#dashboard").hidden = !session;
-    if (session) refresh();
+    if (session) { refresh(); refreshApplications(); }
   }
   $("#loginForm").addEventListener("submit", async e => {
     e.preventDefault(); message("#loginMessage", "Signing in…");

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Join Zimal Research Organization</title>
+<link rel="stylesheet" href="styles.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script><script defer src="apply.js"></script>
+<style>
+.join-page{max-width:1050px;margin:42px auto;padding:0 18px 55px}.join-hero{padding:34px;border-radius:22px;background:linear-gradient(125deg,#102a43,#116b63 58%,#d6a84b);color:#fff;box-shadow:0 18px 45px #0004}.join-hero h1{font-size:clamp(30px,5vw,46px);margin:8px 0 12px}.join-hero p{max-width:760px;line-height:1.8;color:#f2fffb}.join-benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:20px 0}.join-benefit{padding:19px;border-radius:15px;color:#fff;box-shadow:0 9px 24px #0003}.join-benefit:nth-child(1){background:linear-gradient(135deg,#146c94,#2497b5)}.join-benefit:nth-child(2){background:linear-gradient(135deg,#087f5b,#20a879)}.join-benefit:nth-child(3){background:linear-gradient(135deg,#8154a8,#ad70c8)}.join-benefit h3{margin:0 0 7px}.join-benefit p{margin:0;line-height:1.6;color:#f5fffd}.join-form-panel{margin-top:20px;padding:clamp(20px,4vw,34px);border-radius:20px;background:linear-gradient(145deg,#102d40,#123d49);border:1px solid #68c9ad55;box-shadow:0 16px 40px #0004}.join-form-panel h2{color:#a5f0d7}.join-note{padding:14px 17px;border-radius:12px;background:#6d561c;color:#fff4cf;line-height:1.65;margin:18px 0}.application-form label{color:#eaf7f4}.application-form input,.application-form textarea,.application-form select{background:#0b2231!important;border:1px solid #4c7882!important;color:#fff!important}.application-form input:focus,.application-form textarea:focus,.application-form select:focus{outline:2px solid #56d6ae;outline-offset:1px}.application-form button{background:linear-gradient(100deg,#0c9875,#168ac1);border:0;color:#fff;padding:14px 24px;font-weight:700}.application-form button:disabled{opacity:.55}.join-back{color:#a9efd9;font-weight:700}.form-message{line-height:1.6}.join-footer{text-align:center;color:#b4c9ce;padding:22px}
+@media(max-width:700px){.join-benefits{grid-template-columns:1fr}.join-hero{padding:25px}.join-page{margin:22px auto}}
+</style>
+</head>
+<body class="admin-body">
+<header class="topbar"><a class="brand" href="index.html"><span class="brand-mark">Z</span><span>Zimal <small>Research Organization</small></span></a><a class="join-back" href="index.html">← Back to website</a></header>
+<main class="join-page">
+<section class="join-hero"><p class="eyebrow">BE PART OF THE CHANGE</p><h1>Join Zimal Research Organization</h1><p>Bring your skills, ideas and commitment to support research, education, family wellbeing and community development in District Multan. Apply for a volunteer or paid role. Every application is reviewed before any decision is made.</p></section>
+<section class="join-benefits" aria-label="Ways to contribute"><article class="join-benefit"><h3>Community Support</h3><p>Help identify local needs and support families with dignity.</p></article><article class="join-benefit"><h3>Education & Skills</h3><p>Contribute to learning, research and skills development initiatives.</p></article><article class="join-benefit"><h3>Research & Coordination</h3><p>Support field research, documentation and responsible administration.</p></article></section>
+<section class="join-form-panel"><p class="eyebrow green">APPLICATION FORM</p><h2>Start your application</h2><p class="muted">Complete all required fields carefully. Submitting this form does not guarantee selection; applications remain pending until reviewed.</p>
+<div class="join-note"><strong>Eligibility:</strong> Applicants must be 18 years or older. Please provide accurate information. Your application details are for authorized ZRO review and must not be shared publicly.</div>
+<form id="applicationForm" class="application-form">
+<label>Full name<input name="full_name" maxlength="120" required autocomplete="name"></label>
+<label>Father's name<input name="father_name" maxlength="120" required></label>
+<label>Email<input name="email" type="email" maxlength="180" required autocomplete="email"></label>
+<label>Mobile / WhatsApp<input name="phone" type="tel" maxlength="30" required></label>
+<label>City / District<input name="city" maxlength="100" required></label>
+<label>Complete address<textarea name="address" maxlength="500" rows="2" required></textarea></label>
+<label>CNIC number<input name="cnic" inputmode="numeric" pattern="[0-9-]{13,15}" maxlength="15" placeholder="XXXXX-XXXXXXX-X" required></label>
+<label>Application type<select name="application_type" required><option value="">Choose</option><option>Volunteer</option><option>Paid staff</option></select></label>
+<label>Preferred department<select name="department" required><option value="">Choose</option><option>Family Support</option><option>Education</option><option>Skills & Employment</option><option>Research & Administration</option><option>Community Development</option><option>Other</option></select></label>
+<label>Education / qualification<input name="education" maxlength="180" required></label>
+<label>Skills and experience<textarea name="experience" rows="3" maxlength="1500" required></textarea></label>
+<label>Why do you want to work with ZRO?<textarea name="motivation" rows="3" maxlength="1500" required></textarea></label>
+<label>Availability<input name="availability" maxlength="150" placeholder="e.g. 5 hours per week" required></label>
+<label>CV (optional, PDF/JPG/PNG, max 5 MB)<input name="cv_file" type="file" accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png"></label>
+<label class="checkline"><input type="checkbox" name="adult_confirm" required> I confirm that I am 18 or older and the information provided is accurate.</label>
+<label class="checkline"><input type="checkbox" name="privacy_consent" required> I consent to ZRO privately reviewing the information in this application.</label>
+<button class="btn" type="submit" id="submitApplication">Submit application</button><p id="applicationMessage" class="form-message" role="status" aria-live="polite"></p>
+</form></section>
+<div class="join-footer">© <span id="joinYear"></span> Zimal Research Organization · District Multan, Punjab, Pakistan</div>
+</main>
+<script>document.getElementById('joinYear').textContent=new Date().getFullYear();</script>
+</body></html>

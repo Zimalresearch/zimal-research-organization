@@ -71,3 +71,18 @@ The donation section currently explains that payment details are being prepared.
 Do not accept or advertise donations until the organization, responsible adult/authorized
 representative, banking/payment route, receipts, and public reporting process are verified.
 Never trust a payment screenshot as proof of payment.
+
+
+ZRO APPLICATION SYSTEM
+-----------------------
+The public apply.html page accepts applications. Applicant files are stored in a PRIVATE
+Supabase bucket. Only an authenticated ZRO admin can create short-lived signed links to view them.
+Run the updated supabase-setup.sql in SQL Editor after backing up existing data. Then test
+with a dummy application and confirm that a logged-out browser cannot read application rows
+or private files. Do not use real applicant data until access controls have been tested.
+Police clearance upload is not proof of authenticity; confirm it with the issuing authority.
+Do not publicly publish CNICs, police certificates, addresses or other applicant details.
+A responsible adult/authorized representative must administer the system and handle sensitive
+applicant information. Add anti-spam/rate-limiting (for example, a server-side CAPTCHA/Edge
+Function) before opening applications publicly; this starter implementation is not a complete
+anti-abuse system.

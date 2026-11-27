@@ -335,19 +335,57 @@ footer{padding:27px 6.5%;display:flex;align-items:center;justify-content:space-b
   .contact-icon{width:24px;height:24px;font-size:15px}
 }
 
-/* FINAL LAYOUT SAFEGUARDS */
-html,body{max-width:100%;overflow-x:hidden}
-img,video{max-width:100%}
-.intro>*,.reports>*,.donate>*,.contact>*,.founder-profile>*{min-width:0}
-.topbar nav{min-width:0}
-.hero-content,.section-head,.founder-details{min-width:0}
-@media(max-width:850px){
-  .topbar nav{scrollbar-width:thin}
-  .founder-details h2{overflow-wrap:anywhere}
+/* ZRO application and transparency additions */
+.transparency-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:28px}
+.transparency-grid article{padding:24px;border:1px solid rgba(255,255,255,.12);border-radius:14px;background:rgba(255,255,255,.045)}
+.transparency-grid h3{margin:0 0 10px}.transparency-grid p,.legal-note{color:var(--muted,#aebbc4);line-height:1.7}
+.legal-note{font-size:13px;margin-top:20px}.join-cta{text-align:center}.application-panel{max-width:900px}
+.application-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:24px}
+.application-form label{display:flex;flex-direction:column;gap:7px;font-weight:600;font-size:14px}
+.application-form input,.application-form textarea,.application-form select{width:100%;padding:12px;border:1px solid rgba(255,255,255,.2);border-radius:8px;background:#102532;color:inherit;font:inherit}
+.application-form .checkline{grid-column:1/-1;display:flex;flex-direction:row;align-items:flex-start;font-weight:400}
+.application-form .checkline input{width:auto;margin-top:4px}
+.application-form button,.application-form .form-message{grid-column:1/-1}
+@media(max-width:650px){.transparency-grid,.application-form{grid-template-columns:1fr}.application-form .checkline{grid-column:1}}
+
+
+/* ZRO COLORFUL RESEARCH & ROADMAP CARDS */
+.research-card,.roadmap-card{
+  position:relative; overflow:hidden; isolation:isolate;
+  color:#f7fbff; border:1px solid rgba(255,255,255,.18);
+  box-shadow:0 12px 28px rgba(0,0,0,.24);
+  transition:transform .28s ease,box-shadow .28s ease;
 }
-@media(max-width:520px){
-  .section{padding-left:6%;padding-right:6%}
-  .hero{padding-left:7%;padding-right:7%}
-  .hero h1{letter-spacing:-1.5px}
-  .hero-note{font-size:9px}
+.research-card:before,.roadmap-card:before{
+  content:""; position:absolute; inset:0; z-index:-1; opacity:.96;
+  background:linear-gradient(135deg,var(--zro-card-a),var(--zro-card-b));
 }
+.research-card:after,.roadmap-card:after{
+  content:""; position:absolute; width:130px; height:130px; right:-48px; top:-55px;
+  border-radius:50%; background:rgba(255,255,255,.10); z-index:-1;
+}
+.research-card:hover,.roadmap-card:hover{
+  transform:translateY(-7px); box-shadow:0 18px 38px rgba(0,0,0,.34);
+}
+.research-card h3,.roadmap-card h3{color:#fff!important;text-shadow:0 2px 12px rgba(0,0,0,.18)}
+.research-card p,.roadmap-card p{color:rgba(255,255,255,.94)!important}
+.research-number{background:rgba(255,255,255,.2)!important;color:#fff!important;border:1px solid rgba(255,255,255,.3)}
+.research-card:nth-child(1){--zro-card-a:#124b78;--zro-card-b:#197fa8}
+.research-card:nth-child(2){--zro-card-a:#08785f;--zro-card-b:#22a77e}
+.research-card:nth-child(3){--zro-card-a:#67418f;--zro-card-b:#9864bd}
+.research-card:nth-child(4){--zro-card-a:#9b5b13;--zro-card-b:#d18b24}
+.research-card:nth-child(5){--zro-card-a:#8b3155;--zro-card-b:#bd5279}
+.research-card:nth-child(6){--zro-card-a:#315b8c;--zro-card-b:#4c83bd}
+.roadmap-card:nth-child(1){--zro-card-a:#0d7660;--zro-card-b:#20a486}
+.roadmap-card:nth-child(2){--zro-card-a:#17558a;--zro-card-b:#267db7}
+.roadmap-card:nth-child(3){--zro-card-a:#67418f;--zro-card-b:#9563b9}
+.roadmap-card:nth-child(4){--zro-card-a:#9a5a13;--zro-card-b:#d18a24}
+.roadmap-card:nth-child(5){--zro-card-a:#8d3155;--zro-card-b:#bd5279}
+.roadmap-card:nth-child(6){--zro-card-a:#315b8c;--zro-card-b:#4b82bb}
+.roadmap-card:nth-child(7){--zro-card-a:#146c82;--zro-card-b:#249bad}
+.roadmap-card:nth-child(8){--zro-card-a:#586b28;--zro-card-b:#829b3d}
+.roadmap-card:nth-child(9){--zro-card-a:#55427f;--zro-card-b:#8265ae}
+.roadmap-note{background:linear-gradient(120deg,#163c56,#1a665d)!important;border:1px solid rgba(142,226,197,.35)}
+.roadmap-note p{color:#f1fffb!important}
+[dir=rtl] .research-card:after,[dir=rtl] .roadmap-card:after{right:auto;left:-48px}
+@media(prefers-reduced-motion:reduce){.research-card,.roadmap-card{transition:none}.research-card:hover,.roadmap-card:hover{transform:none}}

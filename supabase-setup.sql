@@ -70,3 +70,56 @@ for delete using (bucket_id = 'zro-media' and public.zro_is_admin());
 -- After creating the admin user, run this separately after replacing the email:
 -- insert into public.zro_admins (user_id, email)
 -- select id, email from auth.users where email = 'YOUR_ADMIN_EMAIL';
+
+
+-- ZRO APPLICATIONS: private applicant records and private documents.
+-- Public users may submit an application; only listed admins can read/update it.
+create table if not exists public.zro_applications (
+  id uuid primary key,
+  full_name text not null check (char_length(full_name) between 2 and 120),
+  father_name text not null,
+  email text not null,
+  phone text not null,
+  city text not null,
+  address text not null,
+  cnic text not null,
+  application_type text not null check (application_type in ('Volunteer','Paid staff')),
+  department text not null,
+  education text not null,
+  experience text not null,
+  motivation text not null,
+  availability text not null,
+  police_file_path text not null,
+  cv_file_path text,
+  status text not null default 'pending' check (status in ('pending','approved','rejected')),
+  created_at timestamptz not null default now(),
+  reviewed_at timestamptz
+);
+alter table public.zro_applications enable row level security;
+drop policy if exists "Public can submit ZRO applications" on public.zro_applications;
+create policy "Public can submit ZRO applications" on public.zro_applications
+for insert to anon, authenticated with check (status = 'pending');
+drop policy if exists "Admins can read ZRO applications" on public.zro_applications;
+create policy "Admins can read ZRO applications" on public.zro_applications
+for select to authenticated using (public.zro_is_admin());
+drop policy if exists "Admins can update ZRO applications" on public.zro_applications;
+create policy "Admins can update ZRO applications" on public.zro_applications
+for update to authenticated using (public.zro_is_admin()) with check (public.zro_is_admin());
+
+insert into storage.buckets (id,name,public,file_size_limit,allowed_mime_types)
+values ('zro-private-applications','zro-private-applications',false,5242880,
+ array['application/pdf','image/jpeg','image/png'])
+on conflict (id) do update set public=false,file_size_limit=5242880,
+ allowed_mime_types=array['application/pdf','image/jpeg','image/png'];
+drop policy if exists "Applicants can upload private application files" on storage.objects;
+create policy "Applicants can upload private application files" on storage.objects
+for insert to anon, authenticated
+with check (bucket_id='zro-private-applications' and array_length(storage.foldername(name),1)=1);
+drop policy if exists "Admins can view private application files" on storage.objects;
+create policy "Admins can view private application files" on storage.objects
+for select to authenticated
+using (bucket_id='zro-private-applications' and public.zro_is_admin());
+drop policy if exists "Admins can delete private application files" on storage.objects;
+create policy "Admins can delete private application files" on storage.objects
+for delete to authenticated
+using (bucket_id='zro-private-applications' and public.zro_is_admin());
