@@ -68,8 +68,7 @@
     if(!confirm("Set this application to "+status+"?"))return;
     const {error}=await db.from("zro_applications").update({status,reviewed_at:new Date().toISOString()}).eq("id",id);
     if(error){alert(error.message);return;}refreshApplications();
-  }
-\n  async function showSession() {
+  async function showSession() {
     const { data } = await db.auth.getSession();
     const session = data.session;
     $("#loginBox").hidden = !!session; $("#dashboard").hidden = !session;
