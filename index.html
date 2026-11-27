@@ -136,6 +136,24 @@
 .youtube-video-frame iframe{display:block;width:100%;height:100%;border:0}
 .youtube-channel-link{display:flex;justify-content:center;margin-top:20px}
 @media(max-width:600px){.youtube-videos{padding-left:18px;padding-right:18px}.youtube-video-frame{border-radius:9px}}
+
+/* LATEST NEWS & UPDATES */
+.news-updates{background:#f0f5f2;color:#17384a}
+.news-updates .section-head h2{color:#17384a}
+.news-updates .section-head>p{color:#5e7077}
+.news-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:28px}
+.news-card{overflow:hidden;border-radius:13px;padding:25px 23px;background:linear-gradient(145deg,#ffffff,#e3f1eb);border:1px solid #cbded4;box-shadow:0 10px 26px #102d4012}
+.news-card:nth-child(2){background:linear-gradient(145deg,#fff8e9,#f6e5bd);border-color:#ead8ad}
+.news-card:nth-child(3){background:linear-gradient(145deg,#edf2ff,#dce5fb);border-color:#cbd6f0}
+.news-tag{display:inline-block;padding:6px 10px;border-radius:30px;background:#14785f;color:#fff;font-size:10px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;margin-bottom:15px}
+.news-card:nth-child(2) .news-tag{background:#a56a12}
+.news-card:nth-child(3) .news-tag{background:#435eaa}
+.news-card h3{font:600 19px 'Playfair Display',serif;color:#17384a;margin:0 0 10px}
+.news-card p{font-size:13px;line-height:1.85;color:#52676a;margin:0}
+.news-footnote{margin-top:20px;font-size:12px;line-height:1.8;color:#64747b}
+@media(max-width:850px){.news-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.news-grid{grid-template-columns:1fr}.news-card{padding:22px}}
+
 </style>
 </head>
 
@@ -155,6 +173,7 @@
     <a href="#roadmap" data-en="Our Roadmap" data-ur="ہمارا لائحہ عمل">Our Roadmap</a>
     <a href="#gallery" data-en="Gallery" data-ur="گیلری">Gallery</a>
     <a href="#videos" data-en="Videos" data-ur="ویڈیوز">Videos</a>
+    <a href="#news" data-en="News & Updates" data-ur="خبریں اور تازہ معلومات">News & Updates</a>
     <a href="#reports" data-en="Reports" data-ur="رپورٹس">Reports</a>
     <a href="#contact" data-en="Contact" data-ur="رابطہ">Contact</a>
     <a href="apply.html" data-en="Join ZRO" data-ur="زرو میں شامل ہوں">Join ZRO</a>
@@ -428,6 +447,54 @@
        target="_blank" rel="noopener noreferrer"
        data-en="Visit our YouTube Channel" data-ur="ہمارا یوٹیوب چینل دیکھیں">Visit our YouTube Channel</a>
   </div>
+</section>
+
+<!-- LATEST NEWS & UPDATES -->
+<section class="news-updates section" id="news">
+  <div class="section-head">
+    <div>
+      <p class="eyebrow green" data-en="LATEST FROM ZRO" data-ur="زرو کی تازہ معلومات">LATEST FROM ZRO</p>
+      <h2 data-en="News, updates & community progress." data-ur="خبریں، تازہ معلومات اور کمیونٹی کی پیش رفت۔">News, updates & community progress.</h2>
+    </div>
+    <p data-en="Updates about ZRO's research, community priorities and published activities will be shared here."
+       data-ur="زرو کی تحقیق، کمیونٹی کی ترجیحات اور شائع شدہ سرگرمیوں کے بارے میں تازہ معلومات یہاں دی جائیں گی۔">
+       Updates about ZRO's research, community priorities and published activities will be shared here.
+    </p>
+  </div>
+
+  <div class="news-grid">
+    <article class="news-card">
+      <span class="news-tag" data-en="Community Research" data-ur="کمیونٹی تحقیق">Community Research</span>
+      <h3 data-en="Research focus: Moza Aaheer" data-ur="تحقیقی توجہ: موضع آہیر">Research focus: Moza Aaheer</h3>
+      <p data-en="ZRO's community research highlights priorities including access to education, safer drinking water, local infrastructure, food security and livelihood opportunities. Findings should be shared with supporting evidence as it becomes available."
+         data-ur="زرو کی کمیونٹی تحقیق میں تعلیم تک رسائی، صاف پینے کے پانی، مقامی بنیادی ڈھانچے، غذائی تحفظ اور روزگار کے مواقع جیسی ترجیحات شامل ہیں۔ شواہد دستیاب ہونے پر نتائج بھی شیئر کیے جائیں گے۔">
+         ZRO's community research highlights priorities including access to education, safer drinking water, local infrastructure, food security and livelihood opportunities. Findings should be shared with supporting evidence as it becomes available.
+      </p>
+    </article>
+
+    <article class="news-card">
+      <span class="news-tag" data-en="Education Initiative" data-ur="تعلیمی اقدام">Education Initiative</span>
+      <h3 data-en="Supporting children's school access" data-ur="بچوں کی اسکول تک رسائی میں معاونت">Supporting children's school access</h3>
+      <p data-en="ZRO has shared an initiative aimed at supporting school enrolment for 50 children. Further implementation details and outcomes will be published when confirmed."
+         data-ur="زرو نے 50 بچوں کے اسکول داخلے میں معاونت کے مقصد سے ایک اقدام کا ذکر کیا ہے۔ اس کی مزید عملی تفصیلات اور نتائج کی تصدیق کے بعد شائع کیے جائیں گے۔">
+         ZRO has shared an initiative aimed at supporting school enrolment for 50 children. Further implementation details and outcomes will be published when confirmed.
+      </p>
+    </article>
+
+    <article class="news-card">
+      <span class="news-tag" data-en="Digital Updates" data-ur="ڈیجیٹل تازہ معلومات">Digital Updates</span>
+      <h3 data-en="ZRO videos are now featured on the website" data-ur="زرو کی ویڈیوز اب ویب سائٹ پر">ZRO videos are now featured on the website</h3>
+      <p data-en="Visitors can watch videos from the Zimal Research Organization YouTube channel through the website's Videos section. Visit the channel for the latest uploads."
+         data-ur="ویب سائٹ کے ویڈیوز سیکشن میں زمل ریسرچ آرگنائزیشن کے یوٹیوب چینل کی ویڈیوز دیکھی جا سکتی ہیں۔ نئی ویڈیوز کے لیے چینل وزٹ کریں۔">
+         Visitors can watch videos from the Zimal Research Organization YouTube channel through the website's Videos section. Visit the channel for the latest uploads.
+      </p>
+    </article>
+  </div>
+
+  <p class="news-footnote" data-en="This section is updated by the website team. Dates, figures and project outcomes will be added only after they are checked and confirmed."
+     data-ur="یہ سیکشن ویب سائٹ کی ٹیم اپ ڈیٹ کرے گی۔ تاریخیں، اعداد و شمار اور منصوبوں کے نتائج جانچ اور تصدیق کے بعد ہی شامل کیے جائیں گے۔">
+     This section is updated by the website team. Dates, figures and project outcomes will be added only after they are checked and confirmed.
+  </p>
 </section>
 
 <!-- REPORTS -->
