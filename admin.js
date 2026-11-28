@@ -1,17 +1,30 @@
 
 (() => {
-  const $ = s => document.querySelector(s);
-  const cfg = window.ZRO_CONFIG || {};
+  "use strict";
 
-  const configured = cfg.SUPABASE_URL && cfg.SUPABASE_ANON_KEY &&
+  const $ = (selector) => document.querySelector(selector);
+
+  const cfg = window.ZRO_CONFIG || {};
+  const setupNotice = $("#setupNotice");
+  const loginForm = $("#loginForm");
+
+  const configured =
+    cfg.SUPABASE_URL &&
+    cfg.SUPABASE_ANON_KEY &&
     !cfg.SUPABASE_URL.includes("YOUR_") &&
     !cfg.SUPABASE_ANON_KEY.includes("YOUR_");
 
   if (!configured || !window.supabase) {
-    $("#setupNotice").textContent =
-      "Setup required: add your Supabase Project URL and PUBLIC anon/publishable key to config.js, then complete SETUP_GUIDE.md. Never use a service_role key here.";
+    if (setupNotice) {
+      setupNotice.textContent =
+        "Setup required: configure Supabase URL and public anon key in config.js. Never use a service_role key here.";
+    }
 
-    $("#loginForm").addEventListener("submit", e => e.preventDefault());
+    if (loginForm) {
+      loginForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+      });
+    }
     return;
   }
 
@@ -20,23 +33,82 @@
     cfg.SUPABASE_ANON_KEY
   );
 
+  if (setupNotice) setupNotice.hidden = true;
+
   let editing = null;
 
-  const message = (id, text, bad = false) => {
-    $(id).textContent = text;
-    $(id).className = "form-message" + (bad ? " error" : " success");
-  };
+  function message(selector, text, bad = false) {
+    const element = $(selector);
+    if (!element) return;
 
-  const safe = value =>
-    String(value || "").replace(/[&<>"']/g, c => ({
+    element.textContent = text;
+    element.className =
+      "form-message" + (bad ? " error" : " success");
+  }
+
+  function safe(value) {
+    return String(value ?? "").replace(/[&<>"']/g, (char) => ({
       "&": "&amp;",
       "<": "&lt;",
       ">": "&gt;",
       '"': "&quot;",
       "'": "&#39;"
-    }[c]));
+    }[char]));
+  }
 
+  // Password recovery link
+  if (loginForm) {
+    const forgotButton = document.createElement("button");
+    forgotButton.type = "button";
+    forgotButton.className = "text-link";
+    forgotButton.textContent = "Forgot password?";
+    forgotButton.style.marginTop = "12px";
+    loginForm.appendChild(forgotButton);
+
+    forgotButton.addEventListener("click", async () => {
+      const email = $("#email").value.trim();
+
+      if (!email) {
+        message(
+          "#loginMessage",
+          "Please enter your admin email first.",
+          true
+        );
+        $("#email").focus();
+        return;
+      }
+
+      forgotButton.disabled = true;
+      message("#loginMessage", "Sending recovery email...");
+
+      const redirectTo = new URL(
+        "reset-password.html",
+        window.location.href
+      ).toString();
+
+      const { error } = await db.auth.resetPasswordForEmail(email, {
+        redirectTo
+      });
+
+      forgotButton.disabled = false;
+
+      if (error) {
+        message("#loginMessage", error.message, true);
+        return;
+      }
+
+      message(
+        "#loginMessage",
+        "If the account exists, a password recovery email has been sent. Check your inbox."
+      );
+    });
+  }
+
+  // Load published posts in admin panel
   async function refresh() {
+    const list = $("#postList");
+    if (!list) return;
+
     const { data, error } = await db
       .from("zro_posts")
       .select("*")
@@ -47,16 +119,16 @@
       return;
     }
 
-    const list = $("#postList");
     list.innerHTML = "";
 
-    (data || []).forEach(post => {
+    (data || []).forEach((post) => {
       const item = document.createElement("article");
       item.className = "admin-post";
 
-      const preview = post.media_type === "video"
-        ? `<video src="${safe(post.media_url)}" controls></video>`
-        : `<img src="${safe(post.media_url)}" alt="">`;
+      const preview =
+        post.media_type === "video"
+          ? `<video src="${safe(post.media_url)}" controls></video>`
+          : `<img src="${safe(post.media_url)}" alt="">`;
 
       item.innerHTML = `
         <div class="admin-thumb">${preview}</div>
@@ -66,13 +138,14 @@
           <small>${post.published ? "Published" : "Draft"}</small>
         </div>
         <div class="admin-post-actions">
-          <button class="mini-btn edit">Edit</button>
-          <button class="mini-btn delete">Delete</button>
+          <button class="mini-btn edit" type="button">Edit</button>
+          <button class="mini-btn delete" type="button">Delete</button>
         </div>
       `;
 
       item.querySelector(".edit").addEventListener("click", () => {
         editing = post;
+
         $("#postId").value = post.id;
         $("#title").value = post.title || "";
         $("#description").value = post.description || "";
@@ -83,37 +156,42 @@
         window.scrollTo({ top: 0, behavior: "smooth" });
       });
 
-      item.querySelector(".delete").addEventListener("click", async () => {
-        if (!confirm("Delete this post?")) return;
+      item.querySelector(".delete").addEventListener(
+        "click",
+        async () => {
+          if (!confirm("Delete this post?")) return;
 
-        const path = post.storage_path;
+          const { error: deleteError } = await db
+            .from("zro_posts")
+            .delete()
+            .eq("id", post.id);
 
-        const { error: delErr } = await db
-          .from("zro_posts")
-          .delete()
-          .eq("id", post.id);
+          if (deleteError) {
+            message("#postMessage", deleteError.message, true);
+            return;
+          }
 
-        if (delErr) {
-          message("#postMessage", delErr.message, true);
-          return;
+          if (post.storage_path) {
+            await db.storage
+              .from("zro-media")
+              .remove([post.storage_path]);
+          }
+
+          message("#postMessage", "Post deleted.");
+          refresh();
         }
-
-        if (path) {
-          await db.storage.from("zro-media").remove([path]);
-        }
-
-        refresh();
-      });
+      );
 
       list.appendChild(item);
     });
 
-    if (!data || !data.length) {
+    if (!data || data.length === 0) {
       list.innerHTML =
         '<p class="muted">No posts yet. Publish your first activity above.</p>';
     }
   }
 
+  // Load applications for authorized admin review
   async function refreshApplications() {
     const list = $("#applicationList");
     if (!list) return;
@@ -124,13 +202,14 @@
       .order("created_at", { ascending: false });
 
     if (error) {
-      list.textContent = "Could not load applications: " + error.message;
+      list.textContent =
+        "Could not load applications: " + error.message;
       return;
     }
 
     list.innerHTML = "";
 
-    (data || []).forEach(app => {
+    (data || []).forEach((app) => {
       const item = document.createElement("article");
       item.className = "admin-post";
 
@@ -138,7 +217,10 @@
       info.className = "admin-post-info";
 
       const title = document.createElement("strong");
-      title.textContent = app.full_name + " — " + app.application_type;
+      title.textContent =
+        (app.full_name || "Applicant") +
+        " — " +
+        (app.application_type || "");
 
       const detail = document.createElement("p");
       detail.textContent = [
@@ -147,60 +229,69 @@
         app.city,
         app.department,
         "Status: " + app.status
-      ].join(" · ");
+      ].filter(Boolean).join(" · ");
 
       const docs = document.createElement("div");
       docs.className = "admin-post-actions";
 
       if (app.cv_file_path) {
         const cv = document.createElement("button");
+        cv.type = "button";
         cv.className = "mini-btn";
         cv.textContent = "View CV";
 
         cv.addEventListener("click", async () => {
-          const { data, error } = await db
-            .storage
-            .from("zro-private-applications")
-            .createSignedUrl(app.cv_file_path, 60);
+          const { data: fileData, error: fileError } =
+            await db.storage
+              .from("zro-private-applications")
+              .createSignedUrl(app.cv_file_path, 60);
 
-          if (error) {
-            alert(error.message);
+          if (fileError) {
+            alert(fileError.message);
             return;
           }
 
-          window.open(data.signedUrl, "_blank", "noopener");
+          window.open(
+            fileData.signedUrl,
+            "_blank",
+            "noopener"
+          );
         });
 
         docs.appendChild(cv);
       }
 
       const approve = document.createElement("button");
+      approve.type = "button";
       approve.className = "mini-btn";
       approve.textContent = "Approve";
-      approve.addEventListener("click", () =>
-        setApplicationStatus(app.id, "approved")
-      );
+      approve.addEventListener("click", () => {
+        setApplicationStatus(app.id, "approved");
+      });
 
       const reject = document.createElement("button");
+      reject.type = "button";
       reject.className = "mini-btn";
       reject.textContent = "Reject";
-      reject.addEventListener("click", () =>
-        setApplicationStatus(app.id, "rejected")
-      );
+      reject.addEventListener("click", () => {
+        setApplicationStatus(app.id, "rejected");
+      });
 
       docs.append(approve, reject);
       info.append(title, detail);
       item.append(info, docs);
-      list.append(item);
+      list.appendChild(item);
     });
 
-    if (!data || !data.length) {
+    if (!data || data.length === 0) {
       list.textContent = "No applications received yet.";
     }
   }
 
   async function setApplicationStatus(id, status) {
-    if (!confirm("Set this application to " + status + "?")) return;
+    if (!confirm("Set this application to " + status + "?")) {
+      return;
+    }
 
     const { error } = await db
       .from("zro_applications")
@@ -218,8 +309,15 @@
     refreshApplications();
   }
 
+  // Show login or dashboard according to session
   async function showSession() {
-    const { data } = await db.auth.getSession();
+    const { data, error } = await db.auth.getSession();
+
+    if (error) {
+      message("#loginMessage", error.message, true);
+      return;
+    }
+
     const session = data.session;
 
     $("#loginBox").hidden = !!session;
@@ -231,9 +329,11 @@
     }
   }
 
-  $("#loginForm").addEventListener("submit", async e => {
-    e.preventDefault();
-    message("#loginMessage", "Signing in…");
+  // Admin login
+  loginForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    message("#loginMessage", "Signing in...");
 
     const { error } = await db.auth.signInWithPassword({
       email: $("#email").value.trim(),
@@ -249,15 +349,22 @@
     showSession();
   });
 
+  // Admin logout
   $("#logout").addEventListener("click", async () => {
-    await db.auth.signOut();
+    const { error } = await db.auth.signOut();
+
+    if (error) {
+      alert(error.message);
+      return;
+    }
+
     showSession();
   });
 
-  $("#cancelEdit").addEventListener("click", resetForm);
-
+  // Reset post form
   function resetForm() {
     editing = null;
+
     $("#postForm").reset();
     $("#postId").value = "";
     $("#mediaFile").required = true;
@@ -265,14 +372,21 @@
     $("#cancelEdit").hidden = true;
   }
 
-  $("#postForm").addEventListener("submit", async e => {
-    e.preventDefault();
-    message("#postMessage", "Saving…");
+  $("#cancelEdit").addEventListener("click", resetForm);
+
+  // Publish or update a post
+  $("#postForm").addEventListener("submit", async (event) => {
+    event.preventDefault();
+    message("#postMessage", "Saving...");
 
     const file = $("#mediaFile").files[0];
 
     if (!editing && !file) {
-      message("#postMessage", "Please choose a photo or video.", true);
+      message(
+        "#postMessage",
+        "Please choose a photo or video.",
+        true
+      );
       return;
     }
 
@@ -300,11 +414,11 @@
         return;
       }
 
-      const max = file.type.startsWith("video/")
+      const maxSize = file.type.startsWith("video/")
         ? 40 * 1024 * 1024
         : 8 * 1024 * 1024;
 
-      if (file.size > max) {
+      if (file.size > maxSize) {
         message(
           "#postMessage",
           "File is too large. Images: max 8 MB; videos: max 40 MB.",
@@ -313,14 +427,18 @@
         return;
       }
 
-      const ext = (file.name.split(".").pop() || "bin")
+      const extension = (file.name.split(".").pop() || "bin")
         .toLowerCase()
         .replace(/[^a-z0-9]/g, "");
 
-      storagePath = `${crypto.randomUUID()}.${ext}`;
+      const uniqueName =
+        window.crypto?.randomUUID
+          ? window.crypto.randomUUID()
+          : Date.now().toString();
 
-      const { error: uploadError } = await db
-        .storage
+      storagePath = uniqueName + "." + extension;
+
+      const { error: uploadError } = await db.storage
         .from("zro-media")
         .upload(storagePath, file, {
           upsert: false,
@@ -332,13 +450,14 @@
         return;
       }
 
-      const { data: urlData } = db
-        .storage
+      const { data: urlData } = db.storage
         .from("zro-media")
         .getPublicUrl(storagePath);
 
       mediaUrl = urlData.publicUrl;
-      mediaType = file.type.startsWith("video/") ? "video" : "image";
+      mediaType = file.type.startsWith("video/")
+        ? "video"
+        : "image";
     }
 
     const payload = {
@@ -373,6 +492,10 @@
     refresh();
   });
 
-  db.auth.onAuthStateChange(() => setTimeout(showSession, 0));
+  // Refresh the page state when authentication changes
+  db.auth.onAuthStateChange(() => {
+    setTimeout(showSession, 0);
+  });
+
   showSession();
 })();
